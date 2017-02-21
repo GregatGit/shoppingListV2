@@ -8,6 +8,10 @@ let handlers = {
     showItems: function() {
         console.log(shoppingList.items);
         view.showChoices();
+    },
+    boxIsChecked: function(obj) {
+        let index = Number(obj.parentElement.id);
+        shoppingList.items[index].weekly = !shoppingList.items[index].weekly;
     }
 };
 
@@ -23,8 +27,9 @@ let view = {
             choice.appendChild(list);
         });// shop headings are loaded
 
-        shoppingList.items.forEach(function(item){
+        shoppingList.items.forEach(function(item, position){
             let newLi = document.createElement('li');
+            newLi.id = position;
             newLi.innerText = item.name;
             newLi.appendChild(this.addTickBox(item.weekly));
             let theList = document.getElementById(item.store);
