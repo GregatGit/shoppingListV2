@@ -33,15 +33,7 @@ let view = {
         let choice = document.getElementById('options');
         choice.innerHTML = ''; // clear away anything
         this.createListHeaders(choice, shoppingList.shops);
-        
-        shoppingList.items.forEach(function(item, position){
-            let newLi = document.createElement('li');
-            newLi.id = position;
-            newLi.innerText = item.name;
-            newLi.appendChild(this.addTickBox(item.weekly));
-            let theList = document.getElementById(item.store);
-            theList.appendChild(newLi);
-        }, this);
+        this.addItemsToLists();
         let buttonText = shoppingList.allSelected ? 'Deselect All' : 'Select All';
         choice.appendChild(this.createButton(buttonText, 'handlers.selectAll()'));
         choice.appendChild(this.createButton('DONE', 'handlers.displayChoosen()'));
@@ -58,6 +50,22 @@ let view = {
         let newUlHeader = document.createElement('ul');
         newUlHeader.id = id;
         return newUlHeader;
+    },
+    addItemsToLists: function(toFilter){
+        let list = shoppingList.items; 
+        if (toFilter){
+            list = list.filter(function(item){
+                return item[toFilter];
+            });
+        }
+        list.forEach(function(item, position){
+            let newLi = document.createElement('li');
+            newLi.id = position;
+            newLi.innerText = item.name;
+            newLi.appendChild(this.addTickBox(item.weekly));
+            let theList = document.getElementById(item.store);
+            theList.appendChild(newLi);
+        }, this);
     },
     addTickBox : function (checked) {
         var tickBox = document.createElement("INPUT");
