@@ -20,21 +20,20 @@ let handlers = {
             item.weekly = shoppingList.allSelected;
         });
         view.showChoices();
+    },
+    displayChoosen: function(){
+        console.log('displayChoosen');
     }
 };
 
 let view = {
     showChoices: function() {
+        let message = document.getElementById('message');
+        message.innerText = 'Choose items for you list';
         let choice = document.getElementById('options');
         choice.innerHTML = ''; // clear away anything
-
-        shoppingList.shops.forEach(function(shop){
-            let list = document.createElement('div');
-            list.innerHTML = '<h2>' + shop + '</h2>' ;
-            list.appendChild(view.buildUlHeader(shop));
-            choice.appendChild(list);
-        });// shop headings are loaded
-
+        this.createListHeaders(choice, shoppingList.shops);
+        
         shoppingList.items.forEach(function(item, position){
             let newLi = document.createElement('li');
             newLi.id = position;
@@ -45,6 +44,15 @@ let view = {
         }, this);
         let buttonText = shoppingList.allSelected ? 'Deselect All' : 'Select All';
         choice.appendChild(this.createButton(buttonText, 'handlers.selectAll()'));
+        choice.appendChild(this.createButton('DONE', 'handlers.displayChoosen()'));
+    },
+    createListHeaders: function(idElement, arrHeaders) {
+        arrHeaders.forEach(function(header){
+            let list = document.createElement('div');
+            list.innerHTML = '<h2>' + header + '</h2>' ;
+            list.appendChild(view.buildUlHeader(header));
+            idElement.appendChild(list);
+        });// headings are loaded
     },
     buildUlHeader: function(id) {
         let newUlHeader = document.createElement('ul');
