@@ -22,21 +22,31 @@ let handlers = {
         view.showChoices();
     },
     displayChoosen: function(){
-        console.log('displayChoosen');
+        view.yourList();
+    },
+    gotit: function(obj){
+        obj.parentElement.className = 'bought';
+        console.log(obj.parentElement );
     }
 };
 
 let view = {
     showChoices: function() {
-        let message = document.getElementById('message');
-        message.innerText = 'Choose items for you list';
+        document.getElementById('message').innerText = 'Choose items for you list';
         let choice = document.getElementById('options');
         choice.innerHTML = ''; // clear away anything
         this.createListHeaders(choice, shoppingList.shops);
-        this.addItemsToLists();
+        this.addItemsToLists('tickbox');
         let buttonText = shoppingList.allSelected ? 'Deselect All' : 'Select All';
         choice.appendChild(this.createButton(buttonText, 'handlers.selectAll()'));
         choice.appendChild(this.createButton('DONE', 'handlers.displayChoosen()'));
+    },
+    yourList: function() {
+        document.getElementById('message').innerText = 'Mark off items as you go';
+        let choice = document.getElementById('options');
+        choice.innerHTML = ''; // clear away anything
+        this.createListHeaders(choice, shoppingList.shops);
+        this.addItemsToLists('button',  'weekly'); // weekly tells you that its on this list
     },
     createListHeaders: function(idElement, arrHeaders) {
         arrHeaders.forEach(function(header){
@@ -51,7 +61,7 @@ let view = {
         newUlHeader.id = id;
         return newUlHeader;
     },
-    addItemsToLists: function(toFilter){
+    addItemsToLists: function(type, toFilter ){
         let list = shoppingList.items; 
         if (toFilter){
             list = list.filter(function(item){
@@ -62,7 +72,12 @@ let view = {
             let newLi = document.createElement('li');
             newLi.id = position;
             newLi.innerText = item.name;
-            newLi.appendChild(this.addTickBox(item.weekly));
+            if (type === 'tickbox'){
+                newLi.appendChild(this.addTickBox(item.weekly));
+            }
+            if (type === 'button'){
+                newLi.appendChild(this.createButton('Got it', 'handlers.gotit(this)'));
+            }
             let theList = document.getElementById(item.store);
             theList.appendChild(newLi);
         }, this);
