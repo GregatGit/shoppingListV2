@@ -1,7 +1,8 @@
 
 let shoppingList = {
     items: savedItems,  // will be an array of obj
-    shops: ['Aldi', 'Coles', 'Fruit_Market', 'other' ]
+    shops: ['Aldi', 'Coles', 'Fruit_Market', 'other' ],
+    allSelected: false,
 };
 
 let handlers = {
@@ -12,6 +13,13 @@ let handlers = {
     boxIsChecked: function(obj) {
         let index = Number(obj.parentElement.id);
         shoppingList.items[index].weekly = !shoppingList.items[index].weekly;
+    },
+    selectAll: function(){
+        shoppingList.allSelected = !shoppingList.allSelected;
+        shoppingList.items.forEach(function(item){
+            item.weekly = shoppingList.allSelected;
+        });
+        view.showChoices();
     }
 };
 
@@ -35,6 +43,8 @@ let view = {
             let theList = document.getElementById(item.store);
             theList.appendChild(newLi);
         }, this);
+        let buttonText = shoppingList.allSelected ? 'Deselect All' : 'Select All';
+        choice.appendChild(this.createButton(buttonText, 'handlers.selectAll()'));
     },
     buildUlHeader: function(id) {
         let newUlHeader = document.createElement('ul');
@@ -50,5 +60,11 @@ let view = {
         tickBox.setAttribute('onchange', 'handlers.boxIsChecked(this)');
         return tickBox;
     },
+    createButton: function(text, func){
+        let newButton = document.createElement('button');
+        newButton.innerText = text;
+        newButton.setAttribute('onclick', func);
+        return newButton;
+    }
 };
 
