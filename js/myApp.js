@@ -1,8 +1,14 @@
 
 let shoppingList = {
-    items: savedItems,  // will be an array of obj
+    items: [],  // will be an array of obj
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'other' ],
     allSelected: false,
+    loadList: function (list){
+        list.forEach(function(item, position){
+            item.id = position;
+            shoppingList.items.push(item);
+        });
+    }
 };
 
 let handlers = {
@@ -98,4 +104,6 @@ let view = {
         return newButton;
     }
 };
+
+shoppingList.loadList(savedItems);
 
