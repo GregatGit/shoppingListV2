@@ -25,5 +25,9 @@ createNewItem += '           </div>';
 createNewItem += '           <div>';
 createNewItem += '               Add to choices';
 createNewItem += '               <button onclick="handlers.addNewItem()">Press</button>';
+createNewItem += '          <br>';
+createNewItem += '          <button onclick="handlers.removeMakeNewItems()">Hide this section</button>';
 createNewItem += '           </div>';
 createNewItem += '       </section>';
+
+//view.removeMakeNewItems()

@@ -1,13 +1,20 @@
 
 let shoppingList = {
     items: [],  // will be an array of obj
+    count: 0, // this is to keep an id for new items added
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'other' ],
     allSelected: false,
     loadList: function (list){
         list.forEach(function(item, position){
             item.id = position;
             shoppingList.items.push(item);
+            shoppingList.count++;
         });
+    },
+    loadOneItem: function (obj) {
+        obj.id = this.count;
+        this.items.push(obj);
+        view.showChoices();
     }
 };
 
@@ -28,6 +35,7 @@ let handlers = {
         view.showChoices();
     },
     displayChoosen: function(){
+        view.removeMakeNewItems();
         view.yourList();
     },
     gotit: function(obj){
@@ -36,6 +44,17 @@ let handlers = {
     },
     itemCreater: function() {
         view.makeNewItems();
+    },
+    addNewItem: function() {
+        debugger;
+        let name = document.getElementById('newItemName');
+        let category = document.getElementById("categoryType").value;
+        let store = document.getElementById("storeName").value;
+        shoppingList.loadOneItem({name: name.value, category: category, store: store, weekly: true});
+        name.value = '';
+    },
+    removeMakeNewItems: function() {
+        view.removeMakeNewItems();
     }
 };
 
@@ -110,6 +129,9 @@ let view = {
     makeNewItems: function() {
         document.getElementById('addItems').innerHTML = createNewItem;
         console.log('done');
+    },
+    removeMakeNewItems: function() {
+        document.getElementById('addItems').innerHTML = '';
     }
 };
 

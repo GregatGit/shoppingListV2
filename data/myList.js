@@ -8,7 +8,7 @@ let savedItems =[
     {"name": "rye_bread", "category": "fresh", "store": "Coles", "weekly": false},
     {"name": "dish_soap", "category": "cleaning", "store": "Aldi", "weekly": false},
     {"name": "tissues", "category": "health", "store": "Aldi", "weekly": false},
-    {"name": "face_wash", "category": "health", "store": "Aldi", "weekly": false},
+    {"name": "face wash", "category": "health", "store": "Aldi", "weekly": false},
     {"name": "coffee", "category": "beverages", "store": "Coles", "weekly": false},
     {"name": "tea", "category": "beverages", "store": "Aldi", "weekly": false},
     {"name": "soft_drink", "category": "beverages", "store": "Aldi", "weekly": false}
