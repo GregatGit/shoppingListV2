@@ -33,6 +33,9 @@ let handlers = {
     gotit: function(obj){
         obj.parentElement.className = 'bought';
         console.log(obj.parentElement );
+    },
+    itemCreater: function() {
+        view.makeNewItems();
     }
 };
 
@@ -46,6 +49,7 @@ let view = {
         let buttonText = shoppingList.allSelected ? 'Deselect All' : 'Select All';
         choice.appendChild(this.createButton(buttonText, 'handlers.selectAll()'));
         choice.appendChild(this.createButton('DONE', 'handlers.displayChoosen()'));
+        choice.appendChild(this.createButton('ADD ITEMS', 'handlers.itemCreater()'));
     },
     yourList: function() {
         document.getElementById('message').innerText = 'Mark off items as you go';
@@ -74,9 +78,9 @@ let view = {
                 return item[toFilter];
             });
         }
-        list.forEach(function(item, position){
+        list.forEach(function(item){
             let newLi = document.createElement('li');
-            newLi.id = position;
+            newLi.id = item.id;
             newLi.innerText = item.name;
             if (type === 'tickbox'){
                 newLi.appendChild(this.addTickBox(item.weekly));
@@ -102,6 +106,10 @@ let view = {
         newButton.innerText = text;
         newButton.setAttribute('onclick', func);
         return newButton;
+    },
+    makeNewItems: function() {
+        document.getElementById('addItems').innerHTML = createNewItem;
+        console.log('done');
     }
 };
 
