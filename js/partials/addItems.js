@@ -29,5 +29,3 @@ createNewItem += '          <br>';
 createNewItem += '          <button onclick="handlers.removeMakeNewItems()">Hide this section</button>';
 createNewItem += '           </div>';
 createNewItem += '       </section>';
-
-//view.removeMakeNewItems()

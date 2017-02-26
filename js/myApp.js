@@ -3,14 +3,25 @@ let shoppingList = {
     items: [],  // will be an array of obj
     count: 0, // this is to keep an id for new items added
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'other' ],
+    listIndex: [],
     allSelected: false,
-    loadList: function (list){
-        list.forEach(function(item, position){
-            item.id = position;
-            shoppingList.items.push(item);
-            shoppingList.count++;
-        });
+    loadList: function() {
+        debugger;
+        for (let i = 0; i < this.listIndex.length; i++){
+            lists[shoppingList.listIndex[i]].list.forEach(function(item, position){
+                item.id = position;
+                shoppingList.items.push(item);
+                shoppingList.count++;
+            });
+        }
     },
+    // loadOneList: function (list){
+    //     list.forEach(function(item, position){
+    //         item.id = position;
+    //         shoppingList.items.push(item);
+    //         shoppingList.count++;
+    //     });
+    // },
     loadOneItem: function (obj) {
         obj.id = this.count;
         this.items.push(obj);
@@ -20,7 +31,6 @@ let shoppingList = {
 
 let handlers = {
     showItems: function() {
-        console.log(shoppingList.items);
         view.showChoices();
     },
     boxIsChecked: function(obj) {
@@ -46,7 +56,6 @@ let handlers = {
         view.makeNewItems();
     },
     addNewItem: function() {
-        debugger;
         let name = document.getElementById('newItemName');
         let category = document.getElementById("categoryType").value;
         let store = document.getElementById("storeName").value;
@@ -55,11 +64,33 @@ let handlers = {
     },
     removeMakeNewItems: function() {
         view.removeMakeNewItems();
+    },
+    addListIndex: function(obj){
+        let id = Number(obj.id);
+        let index = shoppingList.listIndex.indexOf(id);
+        if ( index === -1){
+            shoppingList.listIndex.push(id);
+        }else{
+            shoppingList.listIndex.splice(index, 1);
+        }
+        console.log('shoppingList.listIndex', shoppingList.listIndex);
+    },
+    test: function() {
+        console.log('it works');
     }
 };
 
 let view = {
+    startOptions: function() {
+        document.getElementById('message').innerText = 'Select which list(s)';
+        lists.forEach(function(item, position){
+            let listButton = view.createButton(item.name, 'handlers.addListIndex(this)');
+            listButton.id = position;
+            document.getElementById('options').appendChild(listButton);
+        });
+    },
     showChoices: function() {
+        shoppingList.loadList();
         document.getElementById('message').innerText = 'Choose items for you list';
         let choice = document.getElementById('options');
         choice.innerHTML = ''; // clear away anything
@@ -128,12 +159,11 @@ let view = {
     },
     makeNewItems: function() {
         document.getElementById('addItems').innerHTML = createNewItem;
-        console.log('done');
     },
     removeMakeNewItems: function() {
         document.getElementById('addItems').innerHTML = '';
     }
 };
 
-shoppingList.loadList(savedItems);
+view.startOptions();
 
