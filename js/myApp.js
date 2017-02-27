@@ -6,14 +6,22 @@ let shoppingList = {
     listIndex: [],
     allSelected: false,
     loadList: function() {
-        debugger;
-        for (let i = 0; i < this.listIndex.length; i++){
-            lists[shoppingList.listIndex[i]].list.forEach(function(item, position){
-                item.id = position;
-                shoppingList.items.push(item);
-                shoppingList.count++;
+        shoppingList.listIndex.forEach(function(index){
+            lists[index].list.forEach(function(item){
+                let name = item[0];
+                let category = item[1];
+                let store = item[2];
+                let weekly = item[3] || false;
+                shoppingList.items.push({name: name, category: category, store: store, weekly: weekly});
             });
-        }
+        });
+        // for (let i = 0; i < this.listIndex.length; i++){
+        //     lists[shoppingList.listIndex[i]].list.forEach(function(item, position){
+        //         item.id = position;
+        //         shoppingList.items.push(item);
+        //         shoppingList.count++;
+        //     });
+        // }
     },
     // loadOneList: function (list){
     //     list.forEach(function(item, position){
