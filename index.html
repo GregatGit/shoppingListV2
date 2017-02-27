@@ -1,29 +1,37 @@
-<!doctype html>
+<!DOCTYPE HTML>
 
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
-  <title>My Project</title>
+  <title>Shopping List</title>
   <meta name="description" content="">
   <meta name="author" content="">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
-
-  
 </head>
-
+    
 <body>
-
-  <h1>Welcome to your shopping list</h1>
-  <h2 id="message"></h2>
-  <br>
-  <div id="options">
-  </div>
-  <div id="shopList"></div>
-  <div id="addItems"></div>
-  <script src="data/myList.js"></script>
-  <script src="js/partials/addItems.js"></script>
-  <script src="js/myApp.js"></script>
+    <div class="container">
+         <div class="jumbotron">
+          <h1 class="text-center">Welcome to your shopping list</h1>
+          <h2 id="message"></h2>
+          <h2 class="text-center"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></h2>
+          <br>
+          <div id="options">
+          </div>
+          <div id="shopList"></div>
+          <div id="addItems"></div>
+          </div>
+    </div>
+    
+    <script src="data/myList.js"></script>
+    <script src="js/partials/addItems.js"></script>
+    <script src="js/myApp.js"></script>
+    <script src="js/jquery.js"></script>
 </body>
 </html>
+
+
+

@@ -1,3 +1,109 @@
 .bought{
     background-color: #6f84c9;
 }
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #D62246;
+}
+
+.jumbotron {
+    margin-top: 20px;
+    background-color: gainsboro;
+    background-color: rgba(0,0,0,0);
+    color: ;
+}
+
+.jumbotron h1, h2, h3 {
+    color: white;
+}
+
+.span {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+.form {
+    padding: 5px;
+}
+
+#addNewItems {
+    padding-top: 40px;
+}
+
+.hide {
+    padding-top: 5px;
+}
+
+.btn-default {
+  border-color: #17BEBB;
+  border-radius: 4px;
+  background-color: #4B1D3F;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-left: 40%;
+}
+
+.btn-default:hover {
+  background-color: #17BEBB;
+}
+
+.btn-default:focus {
+    background-color: #17BEBB;
+}
+
+.btn-default span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  color: #FFFFFF;
+}
+
+.btn-default span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-default:hover span {
+  padding-right: 25px;
+  color: #FFFFFF;
+}
+
+.btn-default:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+li {
+  list-style-type: none;
+  font-size: 1.5em;
+}
+
+input[type=checkbox] {
+    margin-left: 15px;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+ul {
+    -webkit-padding-start: 0;
+}.bought{
+    background-color: #6f84c9;
+}

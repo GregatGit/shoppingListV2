@@ -2,7 +2,7 @@
 let shoppingList = {
     items: [],  // will be an array of obj
     id: 0,
-    shops: ['Aldi', 'Coles', 'Fruit_Market', 'other' ],
+    shops: ['Aldi', 'Coles', 'Fruit Market', 'Other' ],
     listIndex: [],
     allSelected: false,
     loadList: function() {
@@ -80,7 +80,8 @@ let handlers = {
 
 let view = {
     startOptions: function() {
-        document.getElementById('message').innerText = 'Select which list(s)';
+        document.getElementById('message').innerText = 'Select shopping list';
+        message.className = "text-center";
         lists.forEach(function(item, position){
             let listButton = view.createButton(item.name, 'handlers.addListIndex(this)');
             listButton.id = position;
@@ -144,6 +145,7 @@ let view = {
     },
     addTickBox : function (checked) {
         var tickBox = document.createElement("INPUT");
+        tickBox.className = "test";
         tickBox.setAttribute('type', 'checkbox');
         if (checked){
             tickBox.setAttribute('checked', 'true');
