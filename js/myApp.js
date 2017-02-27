@@ -59,6 +59,7 @@ let handlers = {
     displayChoosen: function(){
         view.removeMakeNewItems();
         view.yourList();
+        view.removeEmptyList();
     },
     gotit: function(obj){
         obj.parentElement.className = 'bought';
@@ -176,6 +177,15 @@ let view = {
     },
     removeMakeNewItems: function() {
         document.getElementById('addItems').innerHTML = '';
+    },
+    removeEmptyList: function() {
+        shoppingList.shops.forEach(function(shop){
+            let listHeader = document.getElementById(shop);
+            let check = listHeader.hasChildNodes();
+            if (!check){
+                listHeader.parentElement.innerHTML = '';
+            }
+        });
     }
 };
 
