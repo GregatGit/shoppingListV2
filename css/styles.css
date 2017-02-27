@@ -22,6 +22,10 @@ body {
     color: white;
 }
 
+#options button {
+    color: blue;
+}
+
 p {
     color: white;
 }
