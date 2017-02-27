@@ -33,7 +33,8 @@ let shoppingList = {
     //     });
     // },
     loadOneItem: function (obj) {
-        obj.id = this.count;
+        obj.id = this.id;
+        this.id++;
         this.items.push(obj);
         view.showChoices(false);
         shoppingList.id++;
