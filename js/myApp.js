@@ -1,7 +1,6 @@
 
 let shoppingList = {
     items: [],  // will be an array of obj
-    count: 0, // this is to keep an id for new items added
     id: 0,
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'other' ],
     listIndex: [],
@@ -17,21 +16,7 @@ let shoppingList = {
                 shoppingList.id++;
             });
         });
-        // for (let i = 0; i < this.listIndex.length; i++){
-        //     lists[shoppingList.listIndex[i]].list.forEach(function(item, position){
-        //         item.id = position;
-        //         shoppingList.items.push(item);
-        //         shoppingList.count++;
-        //     });
-        // }
     },
-    // loadOneList: function (list){
-    //     list.forEach(function(item, position){
-    //         item.id = position;
-    //         shoppingList.items.push(item);
-    //         shoppingList.count++;
-    //     });
-    // },
     loadOneItem: function (obj) {
         obj.id = this.id;
         this.id++;
@@ -88,7 +73,7 @@ let handlers = {
         }
         console.log('shoppingList.listIndex', shoppingList.listIndex);
     },
-    test: function() {
+    test: function() { // a function to make test on new buttons
         console.log('it works');
     }
 };
