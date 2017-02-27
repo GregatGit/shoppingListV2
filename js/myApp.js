@@ -2,6 +2,7 @@
 let shoppingList = {
     items: [],  // will be an array of obj
     count: 0, // this is to keep an id for new items added
+    id: 0,
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'other' ],
     listIndex: [],
     allSelected: false,
@@ -12,7 +13,8 @@ let shoppingList = {
                 let category = item[1];
                 let store = item[2];
                 let weekly = item[3] || false;
-                shoppingList.items.push({name: name, category: category, store: store, weekly: weekly});
+                shoppingList.items.push({name: name, category: category, store: store, weekly: weekly, id: shoppingList.id });
+                shoppingList.id++;
             });
         });
         // for (let i = 0; i < this.listIndex.length; i++){
@@ -34,6 +36,7 @@ let shoppingList = {
         obj.id = this.count;
         this.items.push(obj);
         view.showChoices();
+        shoppingList.id++;
     }
 };
 
@@ -96,6 +99,8 @@ let view = {
             listButton.id = position;
             document.getElementById('options').appendChild(listButton);
         });
+        let loadListButton = view.createButton('Load List', 'handlers.showItems()' );
+        document.getElementById('options').appendChild(loadListButton);
     },
     showChoices: function() {
         shoppingList.loadList();
