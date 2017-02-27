@@ -35,14 +35,14 @@ let shoppingList = {
     loadOneItem: function (obj) {
         obj.id = this.count;
         this.items.push(obj);
-        view.showChoices();
+        view.showChoices(false);
         shoppingList.id++;
     }
 };
 
 let handlers = {
     showItems: function() {
-        view.showChoices();
+        view.showChoices(true);
     },
     boxIsChecked: function(obj) {
         let index = Number(obj.parentElement.id);
@@ -53,7 +53,7 @@ let handlers = {
         shoppingList.items.forEach(function(item){
             item.weekly = shoppingList.allSelected;
         });
-        view.showChoices();
+        view.showChoices(false);
     },
     displayChoosen: function(){
         view.removeMakeNewItems();
@@ -102,8 +102,8 @@ let view = {
         let loadListButton = view.createButton('Load List', 'handlers.showItems()' );
         document.getElementById('options').appendChild(loadListButton);
     },
-    showChoices: function() {
-        shoppingList.loadList();
+    showChoices: function(listNeedsLoading) {
+        if (listNeedsLoading){shoppingList.loadList();}
         document.getElementById('message').innerText = 'Choose items for you list';
         let choice = document.getElementById('options');
         choice.innerHTML = ''; // clear away anything
