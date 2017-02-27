@@ -92,7 +92,7 @@ let view = {
     },
     showChoices: function(listNeedsLoading) {
         if (listNeedsLoading){shoppingList.loadList();}
-        document.getElementById('message').innerText = 'Choose items for you list';
+        document.getElementById('message').innerText = 'Choose items for your list';
         let choice = document.getElementById('options');
         choice.innerHTML = ''; // clear away anything
         this.createListHeaders(choice, shoppingList.shops);

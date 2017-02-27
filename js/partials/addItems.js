@@ -1,5 +1,5 @@
 let createNewItem = '<section id="addNewItems">';
-createNewItem += '           <h3>ADD NEW ITEMS</h3>';
+createNewItem += '           <h3><b>ADD NEW ITEMS</b></h3>';
 createNewItem += '           <div class="form">';
 createNewItem += '               <p>Item name</p> ';
 createNewItem += '               <input type="text" id="newItemName" maxlength="15">';
@@ -24,9 +24,9 @@ createNewItem += '               </select>';
 createNewItem += '           </div>';
 createNewItem += '           <div class="form">';
 createNewItem += '               <p>Add to choices</p>';
-createNewItem += '               <button onclick="handlers.addNewItem()">Press</button>';
+createNewItem += '               <button onclick="handlers.addNewItem()" class="btn btn-success">Press</button>';
 createNewItem += '           </div>';
 createNewItem += '          <div class="form">';
-createNewItem += '          <button onclick="handlers.removeMakeNewItems()">Hide this section</button>';
+createNewItem += '          <button onclick="handlers.removeMakeNewItems()" class="btn btn-success">Hide this section</button>';
 createNewItem += '           </div>';
 createNewItem += '       </section>';
