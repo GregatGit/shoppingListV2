@@ -4,6 +4,7 @@ let shoppingList = {
     id: 0,
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'Other' ],
     listIndex: [],
+    bought: [], // item index will be added as user shops
     allSelected: false,
     loadList: function() {
         shoppingList.listIndex.forEach(function(index){
@@ -47,8 +48,12 @@ let handlers = {
         view.removeEmptyList();
     },
     gotit: function(obj){
-        obj.parentElement.className = 'bought';
+        //obj.parentElement.className = 'bought';
         console.log(obj.parentElement );
+        let index = Number(obj.parentElement.id);
+        shoppingList.bought.push(index);
+        document.getElementById(index).remove();
+        view.removeEmptyList();
     },
     itemCreater: function() {
         view.makeNewItems();
