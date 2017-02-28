@@ -103,6 +103,7 @@ let view = {
         choice.appendChild(this.createButton('ADD ITEMS', 'handlers.itemCreater()'));
     },
     yourList: function() {
+        document.querySelector('h1').innerText = 'Your List';
         document.getElementById('message').innerText = 'Mark off items as you go';
         let choice = document.getElementById('options');
         choice.innerHTML = ''; // clear away anything

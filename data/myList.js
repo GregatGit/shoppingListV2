@@ -30,7 +30,15 @@ let list2 = [
     ['cake mix', 'baking', 'Aldi'],
     ['coccoa', 'baking', 'Aldi' ]
 ];
-let lists = [{name: 'My List', list: list1}, {name: 'List 2', list: list2}];
+let list3 = [
+    ['bleach', 'cleaning', 'Aldi'],
+    ['sunflower oil', 'cooking', 'Aldi'],
+    ['vegemite', 'spreads', 'Coles'],
+    ['peanute butter', 'spreads', 'Aldi'],
+    ['olive oil', 'cooking', 'Aldi']
+];
+
+let lists = [{name: 'My List', list: list1}, {name: 'List 2', list: list2}, {name: 'List 3', list: list3}];
 
 function buildList(arr, list){
   arr.forEach(function(item){
