@@ -10,7 +10,7 @@ createNewItem += '               <select id="storeName">';
 createNewItem += '                   <option value="Aldi">Aldi</option>';
 createNewItem += '                   <option value="Coles">Coles</option>';
 createNewItem += '                   <option value="Fruit_Market">Fruit Market</option>';
-createNewItem += '                   <option value="other">other</option>';
+createNewItem += '                   <option value="Other">Other</option>';
 createNewItem += '               </select>';
 createNewItem += '           </div>';          
 createNewItem += '           <div class="form">';
