@@ -3,6 +3,7 @@ let shoppingList = {
     items: [],  // will be an array of obj
     id: 0,
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'Other' ],
+    shopsOnTheList: [], // only the shops for this shop
     listIndex: [],
     bought: [], // item index will be added as user shops
     allSelected: false,
@@ -13,7 +14,7 @@ let shoppingList = {
                 let category = item[1];
                 let store = item[2];
                 let weekly = item[3] || false;
-                shoppingList.items.push({name: name, category: category, store: store, weekly: weekly, id: shoppingList.id });
+                shoppingList.items.push({name: name, category: category, store: store, weekly: weekly, id: shoppingList.id, bought: false });
                 shoppingList.id++;
             });
         });
@@ -52,6 +53,7 @@ let handlers = {
         console.log(obj.parentElement );
         let index = Number(obj.parentElement.id);
         shoppingList.bought.push(index);
+        shoppingList.items[index].bought = true;
         document.getElementById(index).remove();
         view.removeEmptyList();
     },
