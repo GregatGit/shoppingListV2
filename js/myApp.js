@@ -3,7 +3,6 @@ let shoppingList = {
     items: [],  // will be an array of obj
     id: 0,
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'Other' ],
-    shopsOnTheList: [], // only the shops for this shop
     listIndex: [],
     bought: [], // item index will be added as user shops
     allSelected: false,
@@ -177,9 +176,11 @@ let view = {
     removeEmptyList: function() {
         shoppingList.shops.forEach(function(shop){
             let listHeader = document.getElementById(shop);
-            let check = listHeader.hasChildNodes();
-            if (!check){
-                listHeader.parentElement.innerHTML = '';
+            if (listHeader) { // only check if that shop has a header
+                let check = listHeader.hasChildNodes();
+                if (!check) {
+                    listHeader.parentElement.innerHTML = '';
+                }
             }
         });
     }
