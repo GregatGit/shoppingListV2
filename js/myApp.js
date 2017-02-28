@@ -2,7 +2,7 @@
 let shoppingList = {
     items: [],  // will be an array of obj
     id: 0,
-    shops: ['Aldi', 'Coles', 'Fruit Market', 'Other' ],
+    shops: ['Aldi', 'Coles', 'Fruit_Market', 'Other' ],
     listIndex: [],
     allSelected: false,
     loadList: function() {
@@ -112,7 +112,8 @@ let view = {
     createListHeaders: function(idElement, arrHeaders) {
         arrHeaders.forEach(function(header){
             let list = document.createElement('div');
-            list.innerHTML = '<h2>' + header + '</h2>' ;
+            let text = header.replace(/_/g, ' '); // replace '_' with ' '
+            list.innerHTML = '<h2>' + text + '</h2>'; 
             list.appendChild(view.buildUlHeader(header));
             idElement.appendChild(list);
         });// headings are loaded
