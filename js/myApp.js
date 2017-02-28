@@ -70,6 +70,7 @@ let handlers = {
         view.removeMakeNewItems();
     },
     addListIndex: function(obj){
+        console.log('obj : ', obj);
         let id = Number(obj.id);
         let index = shoppingList.listIndex.indexOf(id);
         if ( index === -1){
@@ -91,9 +92,11 @@ let view = {
         lists.forEach(function(item, position){
             let listButton = view.createButton(item.name, 'handlers.addListIndex(this)');
             listButton.id = position;
+            listButton.classList.add('btn', 'btn-info');
             document.getElementById('options').appendChild(listButton);
         });
         let loadListButton = view.createButton('Load List', 'handlers.showItems()' );
+        loadListButton.classList.add('btn', 'btn-success');
         document.getElementById('options').appendChild(loadListButton);
     },
     showChoices: function(listNeedsLoading) {

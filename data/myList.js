@@ -34,7 +34,7 @@ let list3 = [
     ['bleach', 'cleaning', 'Aldi'],
     ['sunflower oil', 'cooking', 'Aldi'],
     ['vegemite', 'spreads', 'Coles'],
-    ['peanute butter', 'spreads', 'Aldi'],
+    ['peanut butter', 'spreads', 'Aldi'],
     ['olive oil', 'cooking', 'Aldi']
 ];
 
