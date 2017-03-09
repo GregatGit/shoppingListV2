@@ -122,6 +122,7 @@ let view = {
     createListHeaders: function(idElement, arrHeaders) {
         arrHeaders.forEach(function(header){
             let list = document.createElement('div');
+            list.classList.add('col-sm-4');
             let text = header.replace(/_/g, ' '); // replace '_' with ' '
             list.innerHTML = '<h2>' + text + '</h2>'; 
             list.appendChild(view.buildUlHeader(header));
