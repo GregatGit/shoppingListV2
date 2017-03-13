@@ -1,5 +1,5 @@
 
-let createNewItem = `<section id="addNewItems">
+let createNewItem = `<section id="addNewItems" class="onTop">
            <h3><b>ADD NEW ITEMS</b></h3>
            <div class="form">
                <p>Item name</p> 

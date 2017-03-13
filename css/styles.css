@@ -22,6 +22,10 @@ body {
     color: white;
 }
 
+#options {
+    position: absolute;
+    z-index: 1;
+}
 #options button {
     color: blue;
     
@@ -36,7 +40,9 @@ p {
 }
 
 #addNewItems {
+    position: absolute;
     padding-top: 40px;
+    z-index: 2;
 }
 
 .hide {
@@ -111,4 +117,12 @@ ul {
     -webkit-padding-start: 0;
 }.bought{
     background-color: #6f84c9;
+}
+
+.onTop {
+    background-color: #c51445;
+    border: solid;
+    border-radius: 10px;
+    padding: 10% 10%;
+    box-shadow: 5px 5px 5px 5px black;
 }
