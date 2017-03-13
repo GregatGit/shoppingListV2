@@ -168,6 +168,7 @@ let view = {
     createButton: function(text, func){
         let newButton = document.createElement('button');
         newButton.innerText = text;
+        //newButton.innerHTML = '<i class="fa fa-times-circle" aria-hidden="true"></i>';
         newButton.setAttribute('onclick', func);
         return newButton;
     },
