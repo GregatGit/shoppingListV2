@@ -23,7 +23,6 @@ let shoppingList = {
         this.id++;
         this.items.push(obj);
         view.showChoices(false);
-        shoppingList.id++;
     }
 };
 
