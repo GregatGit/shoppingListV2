@@ -25,9 +25,7 @@ let createNewItem = `<section id="addNewItems" class="onTop">
            </div>
            <div class="form">
                <p>Add to choices</p>
-               <button onclick="handlers.addNewItem()" class="btn btn-success">Press</button>
-           </div>
-          <div class="form">
-          <button onclick="handlers.removeMakeNewItems()" class="btn btn-success">Hide this section</button>
+               <button onclick="handlers.addNewItem()" class="btn btn-success">ADD</button>
+               <button onclick="handlers.removeMakeNewItems()" class="btn btn-success">X</button>
            </div>
        </section>`;
