@@ -41,7 +41,7 @@ let handlers = {
         });
         view.showChoices(false);
     },
-    displayChoosen: function(){
+    displayChosen: function(){
         view.removeMakeNewItems();
         view.yourList();
         view.removeEmptyList();
@@ -52,8 +52,14 @@ let handlers = {
         let index = Number(obj.parentElement.id);
         shoppingList.bought.push(index);
         shoppingList.items[index].bought = true;
-        document.getElementById(index).remove();
-        view.removeEmptyList();
+        //document.getElementById(index).remove();
+        let child = document.getElementById(index);
+        $('#' + index).fadeOut('slow', 'swing', function(){
+            child.parentNode.removeChild(child);
+            view.removeEmptyList();
+        });
+        //child.parentNode.removeChild(child);
+        //view.removeEmptyList();
     },
     itemCreater: function() {
         view.makeNewItems();
@@ -107,7 +113,7 @@ let view = {
         this.addItemsToLists('tickbox');
         let buttonText = shoppingList.allSelected ? 'Deselect All' : 'Select All';
         choice.appendChild(this.createButton(buttonText, 'handlers.selectAll()'));
-        choice.appendChild(this.createButton('DONE', 'handlers.displayChoosen()'));
+        choice.appendChild(this.createButton('DONE', 'handlers.displayChosen()'));
         choice.appendChild(this.createButton('ADD ITEMS', 'handlers.itemCreater()'));
     },
     yourList: function() {
