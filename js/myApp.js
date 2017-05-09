@@ -1,5 +1,5 @@
 
-let shoppingList = {
+const shoppingList = {
     items: [],  // will be an array of obj
     id: 0,
     shops: ['Aldi', 'Coles', 'Fruit_Market', 'Other' ],
@@ -26,7 +26,7 @@ let shoppingList = {
     }
 };
 
-let handlers = {
+const handlers = {
     showItems: function() {
         view.showChoices(true);
     },
@@ -90,7 +90,7 @@ let handlers = {
     }
 };
 
-let view = {
+const view = {
     startOptions: function() {
         document.getElementById('message').innerText = 'Select shopping list';
         message.className = "text-center";
